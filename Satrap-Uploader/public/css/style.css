@@ -1,0 +1,20 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+div.content{
+	width: 100%;
+    padding: 8% 24%;
+}
+h3{
+	text-align: center;
+}
+.upload-file{
+	border: 5px solid #858585;
+    border-radius: 30px;
+    padding: 36px;
+}
+.orange{
+	background-color: rgb(227 69 0);
+	border: 0;
+}
