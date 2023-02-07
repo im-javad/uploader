@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FileRequest;
-use Illuminate\Http\Request;
+use App\Services\Uploader\Uploader;
 
 class FileController extends Controller{
     public function upload(){
@@ -12,6 +12,9 @@ class FileController extends Controller{
 
     public function storage(FileRequest $request){
         $validator = $request->validated();
+        
+        (new Uploader($validator))->upload();
+
+        return back();
     }
 }
- 
