@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FileRequest;
 use Illuminate\Http\Request;
 
 class FileController extends Controller{
@@ -9,7 +10,8 @@ class FileController extends Controller{
         return view('frontend.files.create');
     }
 
-    public function storage(){
-        
+    public function storage(FileRequest $request){
+        $validator = $request->validated();
     }
 }
+ 
