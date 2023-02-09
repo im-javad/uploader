@@ -32,7 +32,11 @@
                 <td>
                     <a href="{{ route('file.download' , $file->id) }}"><i class="fa fa-download" aria-hidden="true"></i></a>
                     |
-                    <i class="fa fa-trash-o delete-icon" aria-hidden="true"></i>
+                    <form action="{{ route('file.destroy' , $file->id) }}" method="post" class="inline">
+                    @csrf   
+                    @method('delete')
+                        <button class="none-border"><i class="fa fa-trash-o delete-icon" aria-hidden="true"></i></button>
+                    </form>
                 </td>
             </tr>
         @endforeach

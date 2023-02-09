@@ -9,6 +9,7 @@ Route::prefix('file')->group(function(){
     Route::get('/upload' , [FileController::class , 'upload'])->name('file.upload');
     Route::post('/upload' , [FileController::class , 'storage'])->name('file.storage');
     Route::get('/{file}/download' , [FileController::class , 'download'])->name('file.download');
+    Route::delete('/{file}/delete' , [FileController::class , 'destroy'])->name('file.destroy');
 });
 
 Auth::routes();

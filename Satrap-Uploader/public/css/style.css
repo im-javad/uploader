@@ -25,10 +25,16 @@ h3{
 .valid-danger{
 	color: red;
 }
+.inline{
+	display: inline
+}
 section.table-section{
 	width: 100%;
     padding: 8% 5%;
 }
 .delete-icon{
 	color: #cf0000;
+}
+.none-border{
+	border: 0;
 }

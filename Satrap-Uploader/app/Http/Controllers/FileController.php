@@ -31,4 +31,10 @@ class FileController extends Controller{
     public function download(File $file){
         return $file->download();
     }
+    
+    public function destroy(File $file){
+        $file->delete();
+
+        return back()->with('simpleSuccess' , 'File deleted successfully');
+    }
 }
