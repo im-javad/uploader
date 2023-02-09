@@ -2,6 +2,10 @@
 	margin: 0;
 	padding: 0;
 }
+a{
+	text-decoration: none;
+	color: #00639c;
+}
 section.content{
 	width: 100%;
     padding: 8% 24%;
@@ -24,4 +28,7 @@ h3{
 section.table-section{
 	width: 100%;
     padding: 8% 5%;
+}
+.delete-icon{
+	color: #cf0000;
 }

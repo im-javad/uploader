@@ -17,6 +17,10 @@ class  StorageManager{
         return $this->disk($isPrivate)->path($this->directoryPrefix($type , $name));
     }
 
+    public function getFile(string $type , string $name , bool $isPrivate){
+        return $this->disk($isPrivate)->download($this->directoryPrefix($type , $name));
+    }
+
     public function isFileExists(string $name , string $type , bool $isPrivate){
         return $this->disk($isPrivate)->exists($this->directoryPrefix($type , $name));
     }

@@ -14,6 +14,7 @@
             <th>Email</th>
             <th>Title</th>
             <th>Built</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +29,11 @@
                 <td>{{ $file->email }}</td>
                 <td>{{ substr($file->title , 0 , 8)}}...</td>
                 <td>{{ $file->created_at }}</td>
+                <td>
+                    <a href="{{ route('file.download' , $file->id) }}"><i class="fa fa-download" aria-hidden="true"></i></a>
+                    |
+                    <i class="fa fa-trash-o delete-icon" aria-hidden="true"></i>
+                </td>
             </tr>
         @endforeach
     </tbody>

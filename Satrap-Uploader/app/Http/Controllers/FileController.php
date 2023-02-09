@@ -27,4 +27,8 @@ class FileController extends Controller{
             return back()->with('simpleError' , 'File has already uploaded');
         }  
     }
+
+    public function download(File $file){
+        return $file->download();
+    }
 }
