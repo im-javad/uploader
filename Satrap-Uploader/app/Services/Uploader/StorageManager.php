@@ -16,7 +16,7 @@ class  StorageManager{
     public function getAbsolutePathOf(string $name , string $type , bool $isPrivate){
         return $this->disk($isPrivate)->path($type . DIRECTORY_SEPARATOR . $name);
     }
- 
+
     public function disk(bool $isPrivate){
         return $isPrivate ? Storage::disk('private') : Storage::disk('public');
     }

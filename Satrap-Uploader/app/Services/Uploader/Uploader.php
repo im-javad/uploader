@@ -1,6 +1,7 @@
 <?PhP 
 namespace App\Services\Uploader;
 
+use App\Models\File;
 
 class Uploader{
     private $file;
@@ -15,10 +16,28 @@ class Uploader{
 
     public function upload(){
         $this->putFileIntoStorage();
-        
-        $path_durationOf = $this->storageManager->getAbsolutePathOf($this->file->getClientOriginalName() , $this->getType() , $this->isPrivate());
 
-        dd($this->ffmpeg->durationOf($path_durationOf)); 
+        return $this->saveFileIntoDatabase();
+    }
+
+    public function saveFileIntoDatabase(){
+        $file = new File([
+            'name' => $this->file->getClientOriginalName(),
+            'size' => $this->file->getSize(),
+            'type' => $this->getType(),
+            'is_private' => $this->isPrivate(),
+            'email' => $this->validator['email'],
+            'title' => $this->validator['title'],
+        ]);
+
+        $file->time = $this->getTime($file);
+        $file->save();
+    }
+
+    public function getTime(File $file){
+        if(!$file->isMedia()) return null;
+
+        return $this->ffmpeg->durationOf($file->absolutePath());
     }
 
     private function putFileIntoStorage(){
