@@ -12,9 +12,12 @@ class FileController extends Controller{
 
     public function storage(FileRequest $request){
         $validator = $request->validated();
-        
-        (new Uploader($validator))->upload();
 
-        return back();
+        try{
+            (new Uploader($validator))->upload();
+            return back()->with('simpleSuccess' , 'Your file has uploaded successfully');
+        }catch(\Exception $e){
+            return back()->with('simpleError' , 'File has already uploaded');
+        }  
     }
 }

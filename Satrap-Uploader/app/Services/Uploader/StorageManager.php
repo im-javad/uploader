@@ -14,7 +14,15 @@ class  StorageManager{
     }
 
     public function getAbsolutePathOf(string $name , string $type , bool $isPrivate){
-        return $this->disk($isPrivate)->path($type . DIRECTORY_SEPARATOR . $name);
+        return $this->disk($isPrivate)->path($this->directoryPrefix($type , $name));
+    }
+
+    public function isFileExists(string $name , string $type , bool $isPrivate){
+        return $this->disk($isPrivate)->exists($this->directoryPrefix($type , $name));
+    }
+
+    private function directoryPrefix(string $type , string $name){
+        return $type . DIRECTORY_SEPARATOR . $name;
     }
 
     public function disk(bool $isPrivate){

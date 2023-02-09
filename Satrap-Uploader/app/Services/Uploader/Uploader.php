@@ -1,7 +1,9 @@
 <?PhP 
 namespace App\Services\Uploader;
 
+use App\Exceptions\FileHasExistsExceptioddssd;
 use App\Models\File;
+use App\Services\Uploader\FFMpeg;
 
 class Uploader{
     private $file;
@@ -15,6 +17,8 @@ class Uploader{
     } 
 
     public function upload(){
+        if ($this->isFileExists())  throw new FileHasExistsExceptioddssd("File Has Already Exists");
+
         $this->putFileIntoStorage();
 
         return $this->saveFileIntoDatabase();
@@ -56,5 +60,9 @@ class Uploader{
 
     public function isPrivate(){
         return $this->validator['status'] === 'private' ? true : false;
+    }
+
+    private function isFileExists(){
+        return $this->storageManager->isFileExists($this->file->getClientOriginalName() , $this->getType() , $this->isPrivate());
     }
 }

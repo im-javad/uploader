@@ -10,6 +10,8 @@
     <title>@yield('title')</title>
 </head>
 <body>
+    @include('partials.alerts')
+    
     @yield('content')
 </body>
 </html>

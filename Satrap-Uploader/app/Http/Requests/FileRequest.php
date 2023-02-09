@@ -25,8 +25,8 @@ class FileRequest extends FormRequest{
         return [
             'email' => 'required|email',
             'title' => 'required|string|min:5|max:50',
-            'file' => 'required|max:50000|file|mimetypes:image,video/mp4,application/zip',
+            'file' => 'required|max:50000|file|mimetypes:image,video/mp4,application/zip', 
             'status' => 'required|in:private,public'
-        ]; 
+        ];
     }
 }
