@@ -4,8 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FileRequest extends FormRequest
-{
+class FileRequest extends FormRequest{
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,7 +25,7 @@ class FileRequest extends FormRequest
         return [
             'email' => 'required|email',
             'title' => 'required|string|min:5|max:50',
-            'file' => 'required|max:10000|file|mimetypes:image,video/mp4,application/zip',
+            'file' => 'required|max:50000|file|mimetypes:image,video/mp4,application/zip',
             'status' => 'required|in:private,public'
         ]; 
     }
