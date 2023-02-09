@@ -2,7 +2,7 @@
 	margin: 0;
 	padding: 0;
 }
-div.content{
+section.content{
 	width: 100%;
     padding: 8% 24%;
 }
@@ -20,4 +20,8 @@ h3{
 }
 .valid-danger{
 	color: red;
+}
+section.table-section{
+	width: 100%;
+    padding: 8% 5%;
 }

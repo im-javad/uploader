@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FileRequest;
+use App\Models\File;
 use App\Services\Uploader\Uploader;
 
 class FileController extends Controller{
+    public function index(){
+        $files = File::all();
+
+        return view('frontend.files.index' , compact('files'));
+    }
+    
     public function upload(){
         return view('frontend.files.create');
     }

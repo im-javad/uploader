@@ -3,7 +3,7 @@
 @section('title' , 'Upload File')
 
 @section('content')
-<div class="content">
+<section class="content">
   <div class="upload-file">
     <h3>Upload Your File</h3>
     <form action="{{ route('file.storage') }}" method="POST" enctype="multipart/form-data">
@@ -56,5 +56,5 @@
       </div>
     </form>
   </div>
-</div>
+</section>
 @endsection
